@@ -1,0 +1,386 @@
+
+ESP32-CAM Measurement System Booting...
+Initializing camera... PSRAM found
+OK
+Initializing SD card... OK
+
+========================================
+ESP32-CAM Measurement System
+========================================
+PSRAM:       OK
+SD Card:     OK
+Resolution:  VGA
+Crop:        ON (420x420 center)
+Calibrated:  NO
+Exp locked:  NO
+Contrast:    ON (strength 25)
+Units:       mm
+Scale:       0.361 mm/px
+Min Area:    300 px,  Max Area: 35000 px
+========================================
+
+Commands:
+  CALIBRATE           - Capture empty background and calibrate
+  CAPTURE             - Measure object
+  STATUS              - Show system status
+  CROP <size>         - Enable crop (e.g. CROP 300)
+  CROP OFF            - Disable crop
+  RES <0-13>          - Set resolution
+  OFFSET <val>        - Set fallback threshold offset
+  KSIGMA <val>        - Set k-sigma (e.g. KSIGMA 2.5)
+  CONTRAST <0/1>      - Enable/disable contrast
+  STRENGTH <0-100>    - Set contrast strength
+  MM <val>            - Set mm per pixel
+  UNLOCKEXP           - Re-enable auto-exposure
+  MINAREA <px>        - Set min blob area (e.g. MINAREA 100)
+  MAXAREA <px>        - Set max blob area (e.g. MAXAREA 200000)
+  DIAGNOSE            - Capture + print pixel stats (no measurement)
+  HELP                - Show this menu
+========================================
+
+
+--- Calibration Start ---
+REMOVE ALL OBJECTS. Ensure clean white background.
+Waiting for AEC to settle (10 warm-up frames)...
+AEC settled.
+
+Calibration sample 1/7...
+  Image: 640x480
+
+Calibration sample 2/7...
+  Image: 640x480
+
+Calibration sample 3/7...
+  Image: 640x480
+
+Calibration sample 4/7...
+  Image: 640x480
+
+Calibration sample 5/7...
+  Image: 640x480
+
+Calibration sample 6/7...
+  Image: 640x480
+
+Calibration sample 7/7...
+  Image: 640x480
+
+Using 7 good samples, computing median...
+Exposure locked: AEC=168, gain=0
+
+=== CALIBRATION RESULTS ===
+K-sigma: 2.50
+  [0,0] mean=164 std=  3 -> T=156
+  [1,0] mean=164 std=  3 -> T=156
+  [2,0] mean=157 std=  5 -> T=144
+  [3,0] mean=134 std=  9 -> T=111
+  [0,1] mean=169 std=  2 -> T=164
+  [1,1] mean=167 std=  2 -> T=162
+  [2,1] mean=156 std=  6 -> T=141
+  [3,1] mean=129 std= 11 -> T=101
+  [0,2] mean=159 std=  5 -> T=146
+  [1,2] mean=155 std=  6 -> T=140
+  [2,2] mean=139 std=  9 -> T=116
+  [3,2] mean=109 std= 12 -> T= 79
+  [0,3] mean=137 std=  6 -> T=122
+  [1,3] mean=132 std=  8 -> T=112
+  [2,3] mean=113 std= 10 -> T= 88
+  [3,3] mean= 85 std= 12 -> T= 55
+--- Calibration Complete ---
+
+
+--- Calibration Start ---
+REMOVE ALL OBJECTS. Ensure clean white background.
+Waiting for AEC to settle (10 warm-up frames)...
+AEC settled.
+
+Calibration sample 1/7...
+  Image: 640x480
+
+Calibration sample 2/7...
+  Image: 640x480
+
+Calibration sample 3/7...
+  Image: 640x480
+
+Calibration sample 4/7...
+  Image: 640x480
+
+Calibration sample 5/7...
+  Image: 640x480
+
+Calibration sample 6/7...
+  Image: 640x480
+
+Calibration sample 7/7...
+  Image: 640x480
+
+Using 7 good samples, computing median...
+Exposure locked: AEC=168, gain=0
+
+=== CALIBRATION RESULTS ===
+K-sigma: 2.50
+  [0,0] mean=161 std=  3 -> T=153
+  [1,0] mean=161 std=  4 -> T=151
+  [2,0] mean=154 std=  6 -> T=139
+  [3,0] mean=130 std=  9 -> T=107
+  [0,1] mean=167 std=  2 -> T=162
+  [1,1] mean=167 std=  2 -> T=162
+  [2,1] mean=157 std=  5 -> T=144
+  [3,1] mean=129 std= 11 -> T=101
+  [0,2] mean=159 std=  5 -> T=146
+  [1,2] mean=155 std=  6 -> T=140
+  [2,2] mean=140 std=  9 -> T=117
+  [3,2] mean=109 std= 13 -> T= 76
+  [0,3] mean=137 std=  6 -> T=122
+  [1,3] mean=132 std=  8 -> T=112
+  [2,3] mean=114 std= 10 -> T= 89
+  [3,3] mean= 84 std= 12 -> T= 54
+--- Calibration Complete ---
+
+
+--- Capture Start ---
+Calibrated: YES
+Exposure locked: AEC=168, gain=0
+Warming up (5 frames)...
+Image: 640x480, 307200 bytes
+Processing 640x480 image...
+Center cropped to 420x420
+Contrast enhanced: range was 255
+Saved: /cropped_000.pgm
+  Image stats: min=0, max=255, mean=215, range=255
+Thresholding with 4x4 adaptive calibration (bilinear)...
+  Thresholds per cell:
+    [0,0] mean=161 std=  3 k=2.5 -> T=153
+    [1,0] mean=161 std=  4 k=2.5 -> T=151
+    [2,0] mean=154 std=  6 k=2.5 -> T=139
+    [3,0] mean=130 std=  9 k=2.5 -> T=107
+    [0,1] mean=167 std=  2 k=2.5 -> T=162
+    [1,1] mean=167 std=  2 k=2.5 -> T=162
+    [2,1] mean=157 std=  5 k=2.5 -> T=144
+    [3,1] mean=129 std= 11 k=2.5 -> T=101
+    [0,2] mean=159 std=  5 k=2.5 -> T=146
+    [1,2] mean=155 std=  6 k=2.5 -> T=140
+    [2,2] mean=140 std=  9 k=2.5 -> T=117
+    [3,2] mean=109 std= 13 k=2.5 -> T= 76
+    [0,3] mean=137 std=  6 k=2.5 -> T=122
+    [1,3] mean=132 std=  8 k=2.5 -> T=112
+    [2,3] mean=114 std= 10 k=2.5 -> T= 89
+    [3,3] mean= 84 std= 12 k=2.5 -> T= 54
+  Foreground pixels after threshold: 4175 / 176400 (2.4%)
+Morphological cleanup...
+Saved: /binary_000.pgm
+
+--- Blob Detection ---
+Area filter: min=300  max=35000 px
+  Blob at (264,156): area=1495 px  bbox=[248,156 to 303,210] -> ACCEPTED
+  -> Object 1: L=20.30 mm, W=10.48 mm
+  Blob at (279,245): area=1465 px  bbox=[261,245 to 308,301] -> ACCEPTED
+  -> Object 2: L=19.18 mm, W=10.52 mm
+  Blob at (297,343): area=1414 px  bbox=[279,343 to 314,398] -> ACCEPTED
+  -> Object 3: L=19.29 mm, W=10.02 mm
+
+--- Results ---
+Valid objects:    3
+Rejected (small): 0  (increase g_min_area or check threshold)
+Rejected (large): 0  (decrease g_max_area or object fills frame)
+Avg L: 19.59 mm, Avg W: 10.34 mm
+Saved: /final_cropped_000.pgm
+--- Complete ---
+
+
+--- Capture Start ---
+Calibrated: YES
+Exposure locked: AEC=168, gain=0
+Warming up (5 frames)...
+Image: 640x480, 307200 bytes
+Processing 640x480 image...
+Center cropped to 420x420
+Contrast enhanced: range was 251
+Saved: /cropped_001.pgm
+  Image stats: min=3, max=255, mean=212, range=252
+Thresholding with 4x4 adaptive calibration (bilinear)...
+  Thresholds per cell:
+    [0,0] mean=161 std=  3 k=2.5 -> T=153
+    [1,0] mean=161 std=  4 k=2.5 -> T=151
+    [2,0] mean=154 std=  6 k=2.5 -> T=139
+    [3,0] mean=130 std=  9 k=2.5 -> T=107
+    [0,1] mean=167 std=  2 k=2.5 -> T=162
+    [1,1] mean=167 std=  2 k=2.5 -> T=162
+    [2,1] mean=157 std=  5 k=2.5 -> T=144
+    [3,1] mean=129 std= 11 k=2.5 -> T=101
+    [0,2] mean=159 std=  5 k=2.5 -> T=146
+    [1,2] mean=155 std=  6 k=2.5 -> T=140
+    [2,2] mean=140 std=  9 k=2.5 -> T=117
+    [3,2] mean=109 std= 13 k=2.5 -> T= 76
+    [0,3] mean=137 std=  6 k=2.5 -> T=122
+    [1,3] mean=132 std=  8 k=2.5 -> T=112
+    [2,3] mean=114 std= 10 k=2.5 -> T= 89
+    [3,3] mean= 84 std= 12 k=2.5 -> T= 54
+  Foreground pixels after threshold: 6589 / 176400 (3.7%)
+Morphological cleanup...
+Saved: /binary_001.pgm
+
+--- Blob Detection ---
+Area filter: min=300  max=35000 px
+  Blob at (242,0): area=886 px  bbox=[242,0 to 292,29] -> ACCEPTED
+  -> Object 1: L=18.49 mm, W=11.07 mm
+  Blob at (268,64): area=1495 px  bbox=[250,64 to 300,119] -> ACCEPTED
+  -> Object 2: L=19.47 mm, W=10.72 mm
+  Blob at (289,161): area=1413 px  bbox=[271,161 to 307,217] -> ACCEPTED
+  -> Object 3: L=19.48 mm, W=9.82 mm
+  Blob at (419,291): area=1921 px  bbox=[370,291 to 419,333] -> ACCEPTED
+  -> Object 4: L=18.28 mm, W=14.96 mm
+  Blob at (303,298): area=1058 px  bbox=[288,298 to 316,338] -> ACCEPTED
+  -> Object 5: L=14.45 mm, W=9.73 mm
+
+--- Results ---
+Valid objects:    5
+Rejected (small): 0  (increase g_min_area or check threshold)
+Rejected (large): 0  (decrease g_max_area or object fills frame)
+Avg L: 18.03 mm, Avg W: 11.26 mm
+Saved: /final_cropped_001.pgm
+--- Complete ---
+
+
+--- Capture Start ---
+Calibrated: YES
+Exposure locked: AEC=168, gain=0
+Warming up (5 frames)...
+Image: 640x480, 307200 bytes
+Processing 640x480 image...
+Center cropped to 420x420
+Contrast enhanced: range was 247
+Saved: /cropped_002.pgm
+  Image stats: min=6, max=255, mean=205, range=249
+Thresholding with 4x4 adaptive calibration (bilinear)...
+  Thresholds per cell:
+    [0,0] mean=161 std=  3 k=2.5 -> T=153
+    [1,0] mean=161 std=  4 k=2.5 -> T=151
+    [2,0] mean=154 std=  6 k=2.5 -> T=139
+    [3,0] mean=130 std=  9 k=2.5 -> T=107
+    [0,1] mean=167 std=  2 k=2.5 -> T=162
+    [1,1] mean=167 std=  2 k=2.5 -> T=162
+    [2,1] mean=157 std=  5 k=2.5 -> T=144
+    [3,1] mean=129 std= 11 k=2.5 -> T=101
+    [0,2] mean=159 std=  5 k=2.5 -> T=146
+    [1,2] mean=155 std=  6 k=2.5 -> T=140
+    [2,2] mean=140 std=  9 k=2.5 -> T=117
+    [3,2] mean=109 std= 13 k=2.5 -> T= 76
+    [0,3] mean=137 std=  6 k=2.5 -> T=122
+    [1,3] mean=132 std=  8 k=2.5 -> T=112
+    [2,3] mean=114 std= 10 k=2.5 -> T= 89
+    [3,3] mean= 84 std= 12 k=2.5 -> T= 54
+  Foreground pixels after threshold: 12574 / 176400 (7.1%)
+Morphological cleanup...
+Saved: /binary_002.pgm
+
+--- Blob Detection ---
+Area filter: min=300  max=35000 px
+  Blob at (348,181): area=12633 px  bbox=[230,181 to 372,289] -> ACCEPTED
+  -> Object 1: L=48.46 mm, W=34.59 mm
+
+--- Results ---
+Valid objects:    1
+Rejected (small): 0  (increase g_min_area or check threshold)
+Rejected (large): 0  (decrease g_max_area or object fills frame)
+Avg L: 48.46 mm, Avg W: 34.59 mm
+Saved: /final_cropped_002.pgm
+--- Complete ---
+
+
+--- Capture Start ---
+Calibrated: YES
+Exposure locked: AEC=168, gain=0
+Warming up (5 frames)...
+Image: 640x480, 307200 bytes
+Processing 640x480 image...
+Center cropped to 420x420
+Contrast enhanced: range was 255
+Saved: /cropped_003.pgm
+  Image stats: min=0, max=255, mean=210, range=255
+Thresholding with 4x4 adaptive calibration (bilinear)...
+  Thresholds per cell:
+    [0,0] mean=161 std=  3 k=2.5 -> T=153
+    [1,0] mean=161 std=  4 k=2.5 -> T=151
+    [2,0] mean=154 std=  6 k=2.5 -> T=139
+    [3,0] mean=130 std=  9 k=2.5 -> T=107
+    [0,1] mean=167 std=  2 k=2.5 -> T=162
+    [1,1] mean=167 std=  2 k=2.5 -> T=162
+    [2,1] mean=157 std=  5 k=2.5 -> T=144
+    [3,1] mean=129 std= 11 k=2.5 -> T=101
+    [0,2] mean=159 std=  5 k=2.5 -> T=146
+    [1,2] mean=155 std=  6 k=2.5 -> T=140
+    [2,2] mean=140 std=  9 k=2.5 -> T=117
+    [3,2] mean=109 std= 13 k=2.5 -> T= 76
+    [0,3] mean=137 std=  6 k=2.5 -> T=122
+    [1,3] mean=132 std=  8 k=2.5 -> T=112
+    [2,3] mean=114 std= 10 k=2.5 -> T= 89
+    [3,3] mean= 84 std= 12 k=2.5 -> T= 54
+  Foreground pixels after threshold: 7954 / 176400 (4.5%)
+Morphological cleanup...
+Filled 21 holes
+Saved: /binary_003.pgm
+
+--- Blob Detection ---
+Area filter: min=300  max=35000 px
+  Blob at (330,191): area=8090 px  bbox=[283,191 to 383,291] -> ACCEPTED
+  -> Object 1: L=36.61 mm, W=36.41 mm
+
+--- Results ---
+Valid objects:    1
+Rejected (small): 0  (increase g_min_area or check threshold)
+Rejected (large): 0  (decrease g_max_area or object fills frame)
+Avg L: 36.61 mm, Avg W: 36.41 mm
+Saved: /final_cropped_003.pgm
+--- Complete ---
+
+
+--- Capture Start ---
+Calibrated: YES
+Exposure locked: AEC=168, gain=0
+Warming up (5 frames)...
+Image: 640x480, 307200 bytes
+Processing 640x480 image...
+Center cropped to 420x420
+Contrast enhanced: range was 255
+Saved: /cropped_004.pgm
+  Image stats: min=0, max=255, mean=207, range=255
+Thresholding with 4x4 adaptive calibration (bilinear)...
+  Thresholds per cell:
+    [0,0] mean=161 std=  3 k=2.5 -> T=153
+    [1,0] mean=161 std=  4 k=2.5 -> T=151
+    [2,0] mean=154 std=  6 k=2.5 -> T=139
+    [3,0] mean=130 std=  9 k=2.5 -> T=107
+    [0,1] mean=167 std=  2 k=2.5 -> T=162
+    [1,1] mean=167 std=  2 k=2.5 -> T=162
+    [2,1] mean=157 std=  5 k=2.5 -> T=144
+    [3,1] mean=129 std= 11 k=2.5 -> T=101
+    [0,2] mean=159 std=  5 k=2.5 -> T=146
+    [1,2] mean=155 std=  6 k=2.5 -> T=140
+    [2,2] mean=140 std=  9 k=2.5 -> T=117
+    [3,2] mean=109 std= 13 k=2.5 -> T= 76
+    [0,3] mean=137 std=  6 k=2.5 -> T=122
+    [1,3] mean=132 std=  8 k=2.5 -> T=112
+    [2,3] mean=114 std= 10 k=2.5 -> T= 89
+    [3,3] mean= 84 std= 12 k=2.5 -> T= 54
+  Foreground pixels after threshold: 11941 / 176400 (6.8%)
+Morphological cleanup...
+Filled 28 holes
+Saved: /binary_004.pgm
+
+--- Blob Detection ---
+Area filter: min=300  max=35000 px
+  Blob at (417,150): area=4026 px  bbox=[381,150 to 419,286] -> ACCEPTED
+  -> Object 1: L=48.86 mm, W=13.96 mm
+  Blob at (329,190): area=8088 px  bbox=[284,190 to 384,289] -> ACCEPTED
+  -> Object 2: L=36.33 mm, W=36.04 mm
+
+--- Results ---
+Valid objects:    2
+Rejected (small): 0  (increase g_min_area or check threshold)
+Rejected (large): 0  (decrease g_max_area or object fills frame)
+Avg L: 42.59 mm, Avg W: 25.00 mm
+Saved: /final_cropped_004.pgm
+--- Complete ---
+
