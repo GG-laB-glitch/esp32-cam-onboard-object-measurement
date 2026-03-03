@@ -37,9 +37,9 @@ The images below are **actual output files** saved to the SD card during a test 
 
 ---
 
-### Step 1 — Raw Capture (`cropped_003.pgm`)
+### Step 1 — Raw and Crop Capture
 
-![Step 1](images/step1_cropped.png)
+![Step 1](images/cropped_003.pgm)
 
 The ESP32-CAM captures a full grayscale frame and applies a **420×420 centre crop** to isolate the measurement area and remove lens-distorted edges. The frame is captured with **locked exposure** (set during calibration) so brightness is identical to the background reference.
 
@@ -47,9 +47,9 @@ The object — a circular puck — is clearly darker than the white surface. Sli
 
 ---
 
-### Step 2 — Binary Threshold + Morphology (`binary_003.pgm`)
+### Step 2 — Binary Threshold + Morphology 
 
-![Step 2](images/step2_binary.png)
+![Step 2](images/binary_003.pgm)
 
 The adaptive threshold computes a separate threshold for each cell in a **4×4 grid** using:
 
@@ -67,9 +67,9 @@ The result is a clean solid-white blob on a pure-black background. The adaptive 
 
 ---
 
-### Step 3 — Measurement Result (`final_cropped_003.pgm`)
+### Step 3 — Measurement Result 
 
-![Step 3](images/step3_final.png)
+![Step 3](images/final_cropped_003.pgm)
 
 A **PCA-based oriented bounding box** is fitted to the detected blob. PCA (Principal Component Analysis) finds the true length axis of the object — not the screen-axis bounding box — so the measurement is correct even if the object is rotated at any angle.
 
